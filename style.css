@@ -4,6 +4,7 @@ h1 {
     padding: 15px;
     text-align: center;
     border-radius: 50px;
+    
 }
 
 #equation-label {
@@ -22,10 +23,11 @@ h1 {
     width: 200px;
     display: block;
 }
-table{
+
+table {
     border-collapse: collapse
-    
 }
+
 th,
 td {
     padding: 8px;
@@ -36,9 +38,11 @@ td {
 tr {
     margin-bottom: 1000px;
 }
-body{
+
+body {
     font-family: Calibri, sans-serif;
 }
+
 .btn-shadow {
     background-color: steelblue;
     border: none;
@@ -50,11 +54,27 @@ body{
     margin-left: 320px;
     border-radius: 3px;
     margin-top: 20px;
-  }
+}
 
-  .btn-shadow:hover {
+.btn-shadow:hover {
     box-shadow: 0px 0px #aaa;
     cursor: pointer;
-    
-  }
-  
+
+}
+
+#equation-image {
+    width: 300px;
+    height: 70px;
+    overflow: hidden;
+    position: relative;
+    border-style: solid;
+}
+
+#equation-image img {
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

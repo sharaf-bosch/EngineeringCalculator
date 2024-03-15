@@ -4,66 +4,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eng. Calc</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <title>Engineering Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div id="heading">
-        <h1>Engineering Calculator</h1>
-    </div>
-
-
-    <div id="type">
-        <label for="operation">Select an operation:</label>
-        <select id="operation" onchange="showFields()">
-            <option value="" disabled selected>Select an operation</option>
-            <option value="add">Add</option>
-            <option value="multiply">Multiply</option>
-        </select>
+    <h1>Engineering Calculator</h1>
+    <label for="equation-select" id="equation-label">Select an Equation:</label>
+    <select id="equation-select">
+        <option disabled selected>Select an equation</option> <!-- Disabled default selection -->
+        <option value="force">Force</option>
+        <option value="kinetic-energy">Kinetic Energy</option>
+        <option value="voltage">Voltage</option>
+        <option value="velocity">Velocity</option>
+        <!-- Add more options for additional equations -->
+    </select>
+    <br>
+    <br>
+    <div id="equation-details" style="display: none;">
+        <!-- Display selected equation -->
+        <div id="equation-image"></div>
     </div>
     <br>
 
-    <!-- Addition -->
-    <div id="addFields" class="hidden">
+    <div id="equation1" style="display: none;">
+        <!-- Input fields for Equation 1 -->
         <table>
             <tr>
-                <td><label for="num1Add" class="variable">Enter number 1 to add:</label></td>
-                <td><input type="number" id="num1Add"></td>
+                <td><label for="mass1" class="input-label">Mass (kg):</label></td>
+                <td><input type="number" id="mass1" class="input-field" placeholder="kg"></td>
             </tr>
             <tr>
-                <td><label for="num2Add" class="variable">Enter number 2 to add:</label></td>
-                <td><input type="number" id="num2Add"></td>
+                <td><label for="acceleration" class="input-label">Acceleration (m/s^2):</label></td>
+                <td><input type="number" id="acceleration" class="input-field" placeholder="m/s^2"></td>
             </tr>
         </table>
     </div>
 
-    <!-- Multiplication -->
-    <div id="multiplyFields" class="hidden">
+    <div id="equation2" style="display: none;">
+        <!-- Input fields for Equation 2 -->
         <table>
             <tr>
-                <td><label for="num1Multiply" class="variable">Enter number 1 to multiply:</label></td>
-                <td><input type="number" id="num1Multiply"></td>
+                <td><label for="mass2" class="input-label">Mass (kg):</label></td>
+                <td><input type="number" id="mass2" class="input-field" placeholder="kg"></td>
             </tr>
             <tr>
-                <td><label for="num2Multiply" class="variable">Enter number 2 to multiply:</label></td>
-                <td><input type="number" id="num2Multiply"></td>
+                <td><label for="velocity" class="input-label">Velocity (m/s):</label></td>
+                <td><input type="number" id="velocity" class="input-field" placeholder="m/s"></td>
             </tr>
         </table>
     </div>
-    <br>
 
-    <div>
-        <button id="addBtn" class="hidden" onclick="calculateAdd()">Add</button>
-        <button id="multiplyBtn" class="hidden" onclick="calculateMultiply()">Multiply</button>
+    <div id="equation3" style="display: none;">
+        <!-- Input fields for Equation 3 -->
+        <table>
+            <tr>
+                <td><label for="current" class="input-label">Current (A):</label></td>
+                <td><input type="number" id="current" class="input-field" placeholder="A"></td>
+            </tr>
+            <tr>
+                <td><label for="resistance" class="input-label">Resistance (Ω):</label></td>
+                <td><input type="number" id="resistance" class="input-field" placeholder="Ω"></td>
+            </tr>
+        </table>
+    </div>
+    <div id="equation4" style="display: none;">
+        <!-- Input fields for Equation 4 -->
+        <table>
+            <tr>
+                <td><label for="init_velocity" class="input-label">Initial Velocity (m/s)</label></td>
+                <td><input type="number" id="init_velocity" class="input-field" placeholder="m/s"></td>
+            </tr>
+            <tr>
+                <td><label for="acceleration1" class="input-label">Acceleration (m/s^2)</label></td>
+                <td><input type="number" id="acceleration1" class="input-field" placeholder="m/s^2"></td>
+            </tr>
+            <tr>
+                <td><label for="time" class="input-label">Time (s)</label></td>
+                <td><input type="number" id="time" class="input-field" placeholder="s"></td>
+            </tr>
+        </table>
     </div>
 
-    <div id="result" class="hidden">
-        <h4>Result:</h4>
-        <p id="output"></p>
+
+    <div id="calculate-button" style="display: none;">
+        <button onclick="calculate()" class="btn-shadow">Calculate</button>
     </div>
 
+    <div id="result"></div>
+    <script src="script.js"></script>
 </body>
 
 </html>
