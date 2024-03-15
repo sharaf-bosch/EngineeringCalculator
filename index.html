@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eng. Calc</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <div id="heading">
+        <h1>Engineering Calculator</h1>
+    </div>
+
+
+    <div id="type">
+        <label for="operation">Select an operation:</label>
+        <select id="operation" onchange="showFields()">
+            <option value="" disabled selected>Select an operation</option>
+            <option value="add">Add</option>
+            <option value="multiply">Multiply</option>
+        </select>
+    </div>
+    <br>
+
+    <!-- Addition -->
+    <div id="addFields" class="hidden">
+        <table>
+            <tr>
+                <td><label for="num1Add" class="variable">Enter number 1 to add:</label></td>
+                <td><input type="number" id="num1Add"></td>
+            </tr>
+            <tr>
+                <td><label for="num2Add" class="variable">Enter number 2 to add:</label></td>
+                <td><input type="number" id="num2Add"></td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Multiplication -->
+    <div id="multiplyFields" class="hidden">
+        <table>
+            <tr>
+                <td><label for="num1Multiply" class="variable">Enter number 1 to multiply:</label></td>
+                <td><input type="number" id="num1Multiply"></td>
+            </tr>
+            <tr>
+                <td><label for="num2Multiply" class="variable">Enter number 2 to multiply:</label></td>
+                <td><input type="number" id="num2Multiply"></td>
+            </tr>
+        </table>
+    </div>
+    <br>
+
+    <div>
+        <button id="addBtn" class="hidden" onclick="calculateAdd()">Add</button>
+        <button id="multiplyBtn" class="hidden" onclick="calculateMultiply()">Multiply</button>
+    </div>
+
+    <div id="result" class="hidden">
+        <h4>Result:</h4>
+        <p id="output"></p>
+    </div>
+
+</body>
+
+</html>
