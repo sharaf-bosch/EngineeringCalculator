@@ -1,0 +1,4 @@
+1. Make changes in the code
+2. Stage changes by pressing the + icon
+3. Commit changes with a message
+4. Push/sync changes
