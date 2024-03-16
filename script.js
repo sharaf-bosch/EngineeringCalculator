@@ -4,31 +4,48 @@ function calculate() {
     var resultElement = document.getElementById("result");
     var result;
 
-    // Perform calculations based on selected equation
     if (equationValue === "force") {
         var mass1 = parseFloat(document.getElementById("mass1").value);
         var acceleration = parseFloat(document.getElementById("acceleration").value);
-        // Perform calculations for Equation 1: F = mass * acceleration
-        result = mass1 * acceleration;
+        if (!isNaN(mass1) && !isNaN(acceleration)) {
+            result = mass1 * acceleration;
+            unit = "N"; 
+        } else {
+            result = "Invalid input";
+        }
+        resultElement.innerHTML = isNaN(result) ? "Result: " + result : "The force is " + result + " " + unit;
     } else if (equationValue === "kinetic-energy") {
         var mass2 = parseFloat(document.getElementById("mass2").value);
         var velocity = parseFloat(document.getElementById("velocity").value);
-        // Perform calculations for Equation 2: KE = 1/2 * mass * velocity^2
-        result = 0.5 * mass2 * velocity ** 2;
+        if (!isNaN(mass2) && !isNaN(velocity)) {
+            result = 0.5 * mass2 * velocity ** 2;
+            unit = "J"; 
+        } else {
+            result = "Invalid input";
+        }
+        resultElement.innerHTML = isNaN(result) ? "Result: " + result : "The kinetic energy is " + result + " " + unit;
     } else if (equationValue === "voltage") {
         var current = parseFloat(document.getElementById("current").value);
         var resistance = parseFloat(document.getElementById("resistance").value);
-        // Perform calculations for Equation 3: V = current * resistance^2
-        result = current * Math.pow(resistance, 2);
+        if (!isNaN(current) && !isNaN(resistance)) {
+            result = current * Math.pow(resistance, 2);
+            unit = "V"; 
+        } else {
+            result = "Invalid input";
+        }
+        resultElement.innerHTML = isNaN(result) ? "Result: " + result : "The voltage is " + result + " " + unit;
     } else if (equationValue === "velocity") {
         var init_velocity = parseFloat(document.getElementById("init_velocity").value);
         var acceleration1 = parseFloat(document.getElementById("acceleration1").value);
         var time = parseFloat(document.getElementById("time").value);
-        // Perform calculations for Equation 3: V = current * resistance^2
-        result = init_velocity + acceleration1 * time;
+        if (!isNaN(init_velocity) && !isNaN(acceleration1) && !isNaN(time)) {
+            result = init_velocity + acceleration1 * time;
+            unit = "m/s"; 
+        } else {
+            result = "Invalid input";
+        }
+        resultElement.innerHTML = isNaN(result) ? "Result: " + result : "The velocity is " + result + " " + unit;
     }
-    // Display result
-    resultElement.innerHTML = "Result: " + result;
 }
 
 // Show corresponding inputs and equation details based on selected equation
@@ -40,6 +57,7 @@ document.getElementById("equation-select").addEventListener("change", function (
     document.getElementById("equation4").style.display = selectedEquation === "velocity" ? "block" : "none";
     document.getElementById("equation-details").style.display = selectedEquation !== "" ? "block" : "none";
     document.getElementById("calculate-button").style.display = selectedEquation !== "" ? "block" : "none";
+
 
     // Display selected equation text
     var equationImage = "";
